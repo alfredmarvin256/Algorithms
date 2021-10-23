@@ -1,18 +1,3 @@
-import time
-
-
-def func_timer(func):
-    def wrapper(*args, **kwargs):
-        start = time.time()
-        answer = func(*args, **kwargs)
-        stop = time.time()
-        print(
-            f"Time for {func.__name__}:{(stop - start)*10000}ms {func.__name__} result:{answer}"
-        )
-
-    return wrapper
-
-
 def repetition_checker(index, num_to_find, num_list):
     """
     Checks for repeated values in a list and returns a list of the indicies of the repeated values.
@@ -37,7 +22,6 @@ def repetition_checker(index, num_to_find, num_list):
     return sorted(indicies)
 
 
-@func_timer
 def linear_search(num_list, num_to_find):
     position = None
     for index, number in enumerate(num_list):
@@ -80,5 +64,4 @@ def binary_search(num_list: list, num_to_find: int):
 
 numbers_list = [1, 4, 6, 9, 11, 15, 15, 15, 17, 21, 34, 34, 56]
 
-# linear_search(numbers_list, 45)
 print(binary_search(numbers_list, 21))
